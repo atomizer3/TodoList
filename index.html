@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>coś</title>
+    </head>
+    <body>
+        <p style="font-weight:bold;color:green;">TODO LIST</p>
+        <input type="button" value="Add new task" id="createNewTask"></button>
+        <table id="todoTable"></table>
+        <script>
+            const todoArray = [];
+
+            const todoRow = '<tr><td><input type="checkbox"></input></td><td><input type="text"></input></td>                 <td>                     <input type="button" value="UP"></button>                 </td>                 <td>                     <input type="button" value="DOWN"></button></td></tr>';
+
+            const newTaskButton = document.getElementById("createNewTask");
+            const todoTable = document.getElementById("todoTable");
+
+            newTaskButton.addEventListener("click", (event) => {
+                event.preventDefault();
+
+                addTodoRow(todoArray.length);
+
+                todoTable.innerHTML = todoArray.join();
+            } );
+
+            function addTodoRow(rowNumber){
+                const row = '<tr>'+
+                                '<td>'+
+                                    '<input type="checkbox"></input>'+
+                                '</td>'+
+                                '<td>'+
+                                    '<input type="text"></input>'+
+                                '</td>'+
+                                '<td>'+
+                                    '<input type="button" value="UP" onclick="moveUp(' + rowNumber + ')"></button>'+
+                                '</td>'+
+                                '<td>'+
+                                    '<input type="button" value="DOWN" onclick="moveDown(' + rowNumber + ')"></button>'+
+                                '</td>'+
+                            '</tr>';
+                
+                todoArray.push(row);
+            }
+
+            let a = 1;
+            a = 2;
+
+            const b = {
+                dupa:2, dupa_x:4
+            };
+
+            b.test1 = "coś";
+
+            console.log(b);
+
+            let tab_x = [
+                "pole1", "pole2", "pole3"
+            ];
+
+            console.log(tab_x);
+
+            function fun_test (zmienna1){
+                tab_x.push(zmienna1)
+                console.log(tab_x);
+                
+            };
+
+            fun_test("cokolwiek");
+        </script>
+    </body>
+</html>
